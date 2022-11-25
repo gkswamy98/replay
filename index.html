@@ -1,0 +1,168 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+        inlineMath: [['$','$']]
+      }
+    });
+  </script>
+  <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script> 
+<link href="https://fonts.googleapis.com/css2?family=Lato&display=swap"
+      rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="./resources/style.css" media="screen"/>
+
+<html lang="en">
+<head>
+	<title>Sequence Model Imitation Learning with Unobserved Contexts</title>
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
+        if you update and want to force Facebook to re-scrape. -->
+	<meta property="og:title" content="Sequence Model Imitation Learning with Unobserved Contexts" />
+	<meta property="og:description" content="Frequently, an imitation learner might not have access to all the information an expert was using to make decisions. We prove that under certain identifiability conditions, training a sequence model policy via on-policy training is both neccesary and sufficient to match expert performance. Furthermore, we show that both in theory and practice, off-policy training of sequence models can lead to a "latching effect," in which an imitation learner just repeats its own past actions." />
+    <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
+        if you update and want to force Twitter to re-scrape. -->
+    <meta property="twitter:card"          content="Frequently, an imitation learner might not have access to all the information an expert was using to make decisions. We prove that under certain identifiability conditions, training a sequence model policy via on-policy training is both neccesary and sufficient to match expert performance. Furthermore, we show that both in theory and practice, off-policy training of sequence models can lead to a "latching effect," in which an imitation learner just repeats its own past actions." />
+    <meta property="twitter:title"         content="Sequence Model Imitation Learning with Unobserved Contexts" />
+    <meta property="twitter:description"   content="Frequently, an imitation learner might not have access to all the information an expert was using to make decisions. We prove that under certain identifiability conditions, training a sequence model policy via on-policy training is both neccesary and sufficient to match expert performance. Furthermore, we show that both in theory and practice, off-policy training of sequence models can lead to a "latching effect," in which an imitation learner just repeats its own past actions." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+<div class="container">
+    <div class="title">
+        Sequence Model Imitation Learning with Unobserved Contexts
+    </div>
+
+    <div class="venue">
+        NeurIPS'22
+    </div>
+
+    <br><br>
+
+    <div class="author">
+        <a href="https://gokul.dev/">Gokul Swamy</a><sup>1</sup>
+    </div>
+    <div class="author">
+        <a href="http://www.sanjibanchoudhury.com/">Sanjiban Choudhury</a><sup>2</sup>
+    </div>
+    <div class="author">
+        <a href="https://www.ri.cmu.edu/ri-people/j-andrew-drew-bagnell/">Drew Bagnell</a><sup>3, 1</sup>
+    </div>
+    <div class="author">
+        <a href="https://zstevenwu.com/">Steven Wu</a><sup>1</sup>
+    </div>
+
+    <br><br>
+
+    <div class="affiliation"><sup>1&nbsp;</sup>CMU</div>
+    <div class="affiliation"><sup>2&nbsp;</sup>Cornell University</div>
+    <div class="affiliation"><sup>3&nbsp;</sup>Aurora Innovation</div>
+    
+
+    <br><br>
+
+    <div class="links"><a href="https://arxiv.org/pdf/2208.02225.pdf"><i class="fa fa-file-text", style="font-size: 50px; padding-bottom: 10px"></i><br>[Paper]</a></div>
+    <div class="links"><a href="https://www.youtube.com/watch?v=_a3nim3wZP4"><i class="fa fa-play-circle" style="font-size: 50px; padding-bottom: 10px"></i><br>[Video]</a></div>
+    <div class="links"><a href="https://github.com/gkswamy98/sequence_model_il"><i class="fa fa-github" style="font-size: 50px; padding-bottom: 10px"></i><br>[Code]</a></div>
+
+    <br><br>
+
+    <img style="width: 80%;" src="./resources/scms.png" alt="Teaser figure."/>
+    <br>
+    <p style="width: 80%;">
+      <br> Frequently, an imitation learner might not have access to all the information an expert was using to make decisions. We prove that under certain identifiability conditions, training a sequence model policy via on-policy training is both neccesary and sufficient to match expert performance. Furthermore, we show that both in theory and practice, off-policy training of sequence models can lead to a "latching effect," in which an imitation learner just repeats its own past actions.
+    </p>
+    <hr>
+
+    <h1>Abstract</h1>
+    <p style="width: 80%;">
+        We consider imitation learning problems where the learner’s ability to mimic
+        the expert increases throughout the course of an episode as more information
+        is revealed. One example of this is when the expert has access to privileged
+        information: while the learner might not be able to accurately reproduce expert
+        behavior early on in an episode, by considering the entire history of states and
+        actions, they might be able to eventually identify the hidden context and act as
+        the expert would. We prove that on-policy imitation learning algorithms (with or
+        without access to a queryable expert) are better equipped to handle these sorts of
+        <i>asymptotically realizable</i> problems than off-policy methods. This is because on-policy algorithms provably learn to recover from their initially suboptimal actions,
+        while off-policy methods treat their suboptimal past actions as though they came
+        from the expert. This often manifests as a <i>latching</i> behavior: a naive repetition of
+        past actions. We conduct experiments in a toy bandit domain that show that there
+        exist sharp <i>phase transitions</i> of whether off-policy approaches are able to match
+        expert performance asymptotically, in contrast to the uniformly good performance
+        of on-policy approaches. We demonstrate that on several continuous control tasks,
+        on-policy approaches are able to use history to identify the context while off-policy
+        approaches actually perform <i>worse</i> when given access to history.    </p>
+    <br>
+    <hr>
+
+    <h1>Video</h1>
+    <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/_a3nim3wZP4" frameBorder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen></iframe>
+    </div>
+    <br>
+
+    <hr>
+
+    <h1>Key Insights</h1>
+
+    <h2>1. Partial Observability in Imitation Learning</h2>
+    <p style="width: 80%;">For a variety of reasons, we might be attempting to imitate an expert who has access to privledged information (e.g. our self-driving car might not pick up on the hand gestures a human driver would respond to). In full generality, this problem is impossible to solve (e.g. if we never observe a stop sign, how would we know to stop?). However, we might hope that in practice, we observe echoes of an unobserved context over the horizon (e.g. we observe all the other cars around us slowing down) that we can use to act appropriately (e.g. slow down as well). This puts us in a situation where the learner's ability to mimic the expert increases over the horizon, a phenomenon we term asymptotic realizability. </p>
+
+    <h2>2. The Latching Effect</h2>
+    <p style="width: 80%;">The standard solution to this sort of problem in sequential decision making is Bayesian filtering. The policy search analog of doing so is using a sequence model policy: $\pi(a_t|s_1, a_1, \dots s_t)$. However, when trains a sequence model in an off-policy manner (e.g. direct regression of the next token), one often observes a sort of <i>latching effect</i> in which the learner just repeats its own past actions (e.g. a self-driving car that begins to turn and then just drives in circles). </p>
+
+    <h2>3. Understanding and Resolving the Latching Effect</h2>
+    <p style="width: 80%;">In off-policy training, we are trying to learn a policy such that $\pi(a_t|s_1, a_1, \dots s_t) \approx p(a_t^E|s_1^E, a_1^E, \dots, s_t^E)$, where $E$ denotes expert. Now, for a lot of tasks, an expert might take similar actions over adjacent timesteps. So, instead of learning a complicated mapping from states to action, it is sufficient to learn a policy that just copies the last action to drive down training error. However, when this naive policy is combined with the learner's initially suboptimal past actions, we have a recipe for disaster: the learner just keeps repeating its own mistakes ad infinitum.</p>
+    <p style="width: 80%;"> At test-time, our learner is attempting to sample from $p(a_t^E|s_1, a_1, \dots, s_t)$. However, we have no reason to believe the model we learned will generalize to our own history distribution. What's really happening here is covariate shift in the space of histories. When this is combined with unavoidable early errors, the learner can quickly go off the rails and stay there. We make this argument more formally in our paper.</p>
+    <!-- <p style="width: 80%;"> We make this argument more formally in the paper.</p>
+    <ul style="width: 80%; margin: auto; text-align: left;">
+        <li>We show that the posterior over contexts generate under the off-policy graphical model weights the learner's own past choices as though they came from the expert (i.e. as though they had information about the unobserved context when they do not).</li>
+        <li>We prove that off-policy learners have a value difference with respect to the expert governed by the sum of their errors over the horizon, while on-policy learners have one determined by their asymptotic error. Given <i>all</i> learners make errors early on as we're in an asymptotically realizable problem, this means that off-policy learners do not learn to recover from their own early mistakes even though it is possible for them to do so.</li>
+      </ul> 
+        <br>         -->
+        <p style="width: 80%;"> We perform experiments in two domains. On a toy bandit problem, we see off-policy learners exihibit sharp <i>phase transitions</i> as far as consistency, in contrast to the uniform value equivalence of on-policy methods. On modifications of the PyBullet suite in which a key piece of information (e.g. the target speed) is hidden from the learner but not the expert, we see that adding history to an off-policy learner like behavioral cloning actually leads to <i>worse</i> performance, while see no such effect for on-policy algorithms like DAgger. We release all of our code at the link below.</p>
+      <a href="https://github.com/gkswamy98/sequence_model_il"><i class="fa fa-github" style="font-size: 50px; padding-bottom: 10px"></i><br>[Code]</a>
+      <hr>
+
+    <h1>Paper</h1>
+    <div class="paper-thumbnail">
+        <a href="https://arxiv.org/pdf/2208.02225.pdf">
+            <img class="layered-paper-big" width="100%" src="./resources/paper.svg" alt="Paper thumbnail"/>
+        </a>
+    </div>
+    <div class="paper-info">
+        <h3>Sequence Model Imitation Learning with Unobserved Contexts</h3>
+        <p>Gokul Swamy, Sanjiban Choudhury, J. Andrew Bagnell, Zhiwei Steven Wu</p>
+        <pre><code>@misc{swamy2022sequence,
+    title = {Sequence Model Imitation Learning with Unobserved Contexts},
+    author = {Gokul Swamy and Sanjiban Choudhury and J. Andrew Bagnell and Zhiwei Steven Wu},
+    year = {2022},
+    booktitle = {Advances in Neural Information Processing Systems},
+    volume = {34}
+}</code></pre>
+    </div>
+
+    <br>
+    <hr>
+
+    <h1>Acknowledgements</h1>
+    <p style="width: 80%;">
+        This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a>
+        and <a href="http://richzhang.github.io/">Richard Zhang</a> for a
+        <a href="http://richzhang.github.io/colorization/">colorful</a> ECCV project, and
+        adapted to be mobile responsive by <a href="https://github.com/jasonyzhang/webpage-template">Jason Zhang</a>.
+        The code we built on can be found <a href="https://github.com/elliottwu/webpage-template">here</a>.
+    </p>
+
+    <br>
+</div>
+
+</body>
+
+</html>
